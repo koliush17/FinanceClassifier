@@ -32,6 +32,9 @@ This project is a text classification solution to predict the type of a financia
 
 The data preprocessing steps are documented in `src/mlproject/data/Data_Processing.md`. The preprocessing of the text data is handled automatically as part of the training pipeline by the `TfidfVectorizer` in the `Classifier` class.
 
+Link to dataset: 
+https://huggingface.co/datasets/mitulshah/transaction-categorization/viewer/default/train?p=45010&row=4501040
+
 ### Model Training and Evaluation
 
 To run the full training pipeline, which includes model comparison, hyperparameter tuning, and saving the best model, run the following command(Should be done before running docker because it trains and saves a model which is used for classification):

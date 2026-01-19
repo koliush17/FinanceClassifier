@@ -12,3 +12,6 @@
 4. Remove words inside brackets - usually state how transaction was made, e.g card, cash. 
 5. Remove extra whitespaces
 6. Remove numbers from string where they are not of the Income type. 
+
+#### Dataset link:
+https://huggingface.co/datasets/mitulshah/transaction-categorization/viewer/default/train?p=45010&row=4501040
