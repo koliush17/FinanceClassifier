@@ -16,8 +16,8 @@ This project is a text classification solution to predict the type of a financia
 
 1.  **Clone the repository:**
     ```sh
-    git clone <repository-url>
-    cd <repository-name>
+    git clone https://github.com/koliush17/FinanceClassifier   
+    cd FinanceClassifier
     ```
 
 2.  **Install dependencies:**
