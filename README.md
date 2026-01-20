@@ -11,6 +11,7 @@ This project is a text classification solution to predict the type of a financia
   - [Running the API Server](#running-the-api-server)
   - [Making API Requests](#making-api-requests)
 - [Testing](#testing)
+- [Examples](#examples)
 
 ## Setup and Installation
 
@@ -19,6 +20,10 @@ This project is a text classification solution to predict the type of a financia
     git clone https://github.com/koliush17/FinanceClassifier   
     cd FinanceClassifier
     ```
+2. **Create virtual environment**
+    ```sh
+    uv venv
+    ```
 
 2.  **Install dependencies:**
     This project uses `uv` for package management. Make sure you have it installed.
@@ -26,6 +31,7 @@ This project is a text classification solution to predict the type of a financia
     # Install project dependencies
     uv pip install -e .
     ```
+
 ## Usage
 
 ### Data Preprocessing
@@ -68,7 +74,14 @@ You can also build and run the application using Docker.
     ```sh
     docker run -p 8000:8000 transaction-classifier
     ```
-The API will be available at `http://localhost:8000/docs`.
+The API will be available at `http://localhost:8000/docs`. 
+Or use curl directly in the terminal: 
+
+```sh
+curl -X 'POST'   'http://127.0.0.1:8000/classify'   -H 'accept: application/json'   -H 'Content-Type: application/json'   -d '{
+"purpose_text": "Your query"
+}'
+```
 
 ## Testing
 
@@ -77,3 +90,29 @@ To run the unit tests, use the following command:
 ```sh
 uv run pytest
 ```
+
+## Example
+
+1. Example 1:
+```sh
+curl -X 'POST'   'http://127.0.0.1:8000/classify'   -H 'accept: application/json'   -H 'Content-Type: application/json'   -d '{
+  "purpose_text": "Starlink"
+}'
+```
+Answer: {"transaction_type": "Utilities & Services"}
+
+2. Example 2:
+```sh
+curl -X 'POST'   'http://127.0.0.1:8000/classify'   -H 'accept: application/json'   -H 'Content-Type: application/json'   -d '{
+  "purpose_text": "Wage"
+}'
+```
+Answer: {"transaction_type": "Income"}
+
+3. Example 3:
+```sh
+curl -X 'POST'   'http://127.0.0.1:8000/classify'   -H 'accept: application/json'   -H 'Content-Type: application/json'   -d '{
+  "purpose_text": "ATM Widthdrawal"
+}'
+```
+Answer: {"transaction_type": "Financial Services"}
